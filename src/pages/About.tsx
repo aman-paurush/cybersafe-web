@@ -1,8 +1,9 @@
 import Navbar from "@/components/Navbar";
 import EmergencyBanner from "@/components/EmergencyBanner";
 import Footer from "@/components/Footer";
-import { Shield, Target, Users, Heart, BookOpen, Bell, Download, Languages } from "lucide-react";
+import { Shield, Target, Users, Heart, BookOpen, Bell, Download, Languages, Phone, AlertCircle, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const About = () => {
   const features = [
@@ -206,6 +207,184 @@ const About = () => {
                     </div>
                   </li>
                 </ol>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Emergency Contacts Section */}
+        <section className="py-16 px-4 bg-gradient-to-b from-destructive/10 to-background">
+          <div className="container mx-auto max-w-5xl">
+            <div className="text-center mb-12 space-y-4">
+              <div className="flex items-center justify-center gap-3">
+                <AlertCircle className="h-8 w-8 text-destructive animate-pulse" />
+                <h2 className="text-foreground">Emergency Contacts - Whom to Contact</h2>
+              </div>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                If you suspect fraud or become a victim, here are the emergency contacts to reach out immediately
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* National Cyber Crime Portal */}
+              <Card className="border-2 border-destructive hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-destructive/20 p-3 rounded-lg">
+                      <Phone className="h-6 w-6 text-destructive" />
+                    </div>
+                    <h3 className="font-bold text-lg text-foreground">National Helpline</h3>
+                  </div>
+                  <div className="space-y-3 pl-12">
+                    <div>
+                      <p className="text-sm text-muted-foreground">Call for Cyber Crime Report:</p>
+                      <p className="text-2xl font-bold text-destructive">1930</p>
+                      <p className="text-xs text-muted-foreground mt-1">24/7 Availability • Free • No Subscription</p>
+                    </div>
+                    <Button 
+                      asChild 
+                      className="w-full bg-destructive hover:bg-destructive/90"
+                    >
+                      <a href="tel:1930">Call Now</a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Online Complaint Portal */}
+              <Card className="border-2 border-blue-500 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-blue-500/20 p-3 rounded-lg">
+                      <MapPin className="h-6 w-6 text-blue-500" />
+                    </div>
+                    <h3 className="font-bold text-lg text-foreground">Cyber Crime Portal</h3>
+                  </div>
+                  <div className="space-y-3 pl-12">
+                    <div>
+                      <p className="text-sm text-muted-foreground">File Online Complaint:</p>
+                      <p className="text-base font-semibold text-blue-600 break-all">cybercrime.gov.in</p>
+                      <p className="text-xs text-muted-foreground mt-1">Official Government Website • Secure • Tracked</p>
+                    </div>
+                    <Button 
+                      asChild 
+                      className="w-full bg-blue-600 hover:bg-blue-700"
+                    >
+                      <a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer">
+                        File Complaint Online
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Local Police */}
+              <Card className="border-2 border-amber-500 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-amber-500/20 p-3 rounded-lg">
+                      <Shield className="h-6 w-6 text-amber-600" />
+                    </div>
+                    <h3 className="font-bold text-lg text-foreground">Local Police</h3>
+                  </div>
+                  <div className="space-y-3 pl-12">
+                    <div>
+                      <p className="text-sm text-muted-foreground">Emergency Police Help:</p>
+                      <p className="text-2xl font-bold text-amber-600">100</p>
+                      <p className="text-xs text-muted-foreground mt-1">24/7 • For Emergency & Threats</p>
+                    </div>
+                    <Button 
+                      asChild 
+                      className="w-full bg-amber-600 hover:bg-amber-700"
+                    >
+                      <a href="tel:100">Call Police</a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Bank / Financial Institution */}
+              <Card className="border-2 border-green-600 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-green-600/20 p-3 rounded-lg">
+                      <Phone className="h-6 w-6 text-green-600" />
+                    </div>
+                    <h3 className="font-bold text-lg text-foreground">Bank Support</h3>
+                  </div>
+                  <div className="space-y-3 pl-12">
+                    <div>
+                      <p className="text-sm text-muted-foreground">Report Bank Fraud:</p>
+                      <p className="text-base font-semibold text-foreground">Your Bank's Helpline</p>
+                      <p className="text-xs text-muted-foreground mt-1">Check Your Debit/Credit Card • Block Immediately</p>
+                    </div>
+                    <Button 
+                      disabled 
+                      className="w-full bg-gray-400 cursor-not-allowed"
+                    >
+                      Contact Your Bank
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* RBI Consumer Grievance */}
+              <Card className="border-2 border-purple-600 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-purple-600/20 p-3 rounded-lg">
+                      <AlertCircle className="h-6 w-6 text-purple-600" />
+                    </div>
+                    <h3 className="font-bold text-lg text-foreground">RBI Grievance</h3>
+                  </div>
+                  <div className="space-y-3 pl-12">
+                    <div>
+                      <p className="text-sm text-muted-foreground">Banking Complaint:</p>
+                      <p className="text-base font-semibold text-purple-600">grievance.rbi.org.in</p>
+                      <p className="text-xs text-muted-foreground mt-1">Reserve Bank of India • Official Portal</p>
+                    </div>
+                    <Button 
+                      asChild 
+                      className="w-full bg-purple-600 hover:bg-purple-700"
+                    >
+                      <a href="https://www.grievance.rbi.org.in" target="_blank" rel="noopener noreferrer">
+                        File Grievance
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Important Tips */}
+              <Card className="border-2 border-pink-600 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-pink-600/20 p-3 rounded-lg">
+                      <Heart className="h-6 w-6 text-pink-600" />
+                    </div>
+                    <h3 className="font-bold text-lg text-foreground">Quick Tips</h3>
+                  </div>
+                  <ul className="space-y-2 text-sm pl-12">
+                    <li>✓ Act immediately if fraud is suspected</li>
+                    <li>✓ Block your cards & apps instantly</li>
+                    <li>✓ Write down transaction details</li>
+                    <li>✓ Keep screenshots & call records</li>
+                    <li>✓ Get complaint reference number</li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Important Notice */}
+            <Card className="border-2 border-destructive/50 bg-destructive/5 mt-8">
+              <CardContent className="p-6">
+                <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
+                  <AlertCircle className="h-5 w-5 text-destructive" />
+                  Important: Time is Critical!
+                </h4>
+                <p className="text-muted-foreground">
+                  Report fraud within the first few hours to maximize chances of recovery. The sooner you report, the better the chances of authorities taking action and preventing others from becoming victims.
+                </p>
               </CardContent>
             </Card>
           </div>
