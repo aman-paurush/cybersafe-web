@@ -9,16 +9,19 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // Aim for ~2 seconds total splash time.
+    // With interval 100ms and increment 5 -> 100/5 = 20 steps -> 20 * 100ms = 2000ms
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(onComplete, 500);
+          // small buffer before completing
+          setTimeout(onComplete, 200);
           return 100;
         }
-        return prev + 2; // Changed to 2 for 5 second duration (100/2 * 100ms = 5000ms)
+        return prev + 5; // finish in ~2 seconds
       });
-    }, 100); // Changed to 100ms intervals
+    }, 100);
 
     return () => clearInterval(interval);
   }, [onComplete]);
