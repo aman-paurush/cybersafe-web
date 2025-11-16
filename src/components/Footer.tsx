@@ -24,7 +24,6 @@ const Footer = () => {
             <h4 className="font-bold mb-4">{t("footer.quickLinks")}</h4>
             <ul className="space-y-2">
               <li><Link to="/learn" className="text-muted-foreground hover:text-primary smooth-transition">{t("nav.learn")}</Link></li>
-              <li><Link to="/news" className="text-muted-foreground hover:text-primary smooth-transition">{t("nav.news")}</Link></li>
               <li><Link to="/report" className="text-muted-foreground hover:text-primary smooth-transition">{t("nav.report")}</Link></li>
               <li><Link to="/about" className="text-muted-foreground hover:text-primary smooth-transition">{t("nav.about")}</Link></li>
             </ul>
@@ -36,8 +35,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/resources" className="text-muted-foreground hover:text-primary smooth-transition">{t("quickAccess.resources.title")}</Link></li>
               <li><Link to="/checklist" className="text-muted-foreground hover:text-primary smooth-transition">{t("nav.checklist")}</Link></li>
-              <li><Link to="/faq" className="text-muted-foreground hover:text-primary smooth-transition">FAQ</Link></li>
-              <li><Link to="/glossary" className="text-muted-foreground hover:text-primary smooth-transition">Glossary</Link></li>
+              <li><Link to="/videos" className="text-muted-foreground hover:text-primary smooth-transition">{t("nav.videos")}</Link></li>
             </ul>
           </div>
 
