@@ -30,17 +30,6 @@ const QuickAccessCards = () => {
       bgColor: "bg-green-100 dark:bg-green-900/30",
       borderColor: "border-green-200 dark:border-green-800",
       hoverBg: "hover:bg-green-50 dark:hover:bg-green-900/50",
-    },
-    {
-      icon: FileText,
-      title: t("quickAccess.faq.title") || "FAQ",
-      description: t("quickAccess.faq.desc") || "Frequently asked questions and quick answers",
-      path: "/faq",
-      color: "text-sky-600 dark:text-sky-400",
-      bgColor: "bg-sky-100 dark:bg-sky-900/30",
-      borderColor: "border-sky-200 dark:border-sky-800",
-      hoverBg: "hover:bg-sky-50 dark:hover:bg-sky-900/50",
-    },
     {
       icon: AlertCircle,
       title: t("quickAccess.report.title"),
@@ -82,16 +71,6 @@ const QuickAccessCards = () => {
       bgColor: "bg-pink-100 dark:bg-pink-900/30",
       borderColor: "border-pink-200 dark:border-pink-800",
       hoverBg: "hover:bg-pink-50 dark:hover:bg-pink-900/50",
-    },
-    {
-      icon: FileText,
-      title: t("quickAccess.glossary.title") || "Glossary",
-      description: t("quickAccess.glossary.desc") || "Common terms explained in simple language",
-      path: "/glossary",
-      color: "text-emerald-600 dark:text-emerald-400",
-      bgColor: "bg-emerald-100 dark:bg-emerald-900/30",
-      borderColor: "border-emerald-200 dark:border-emerald-800",
-      hoverBg: "hover:bg-emerald-50 dark:hover:bg-emerald-900/50",
     },
   ];
 
