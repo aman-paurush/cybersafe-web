@@ -30,6 +30,7 @@ const QuickAccessCards = () => {
       bgColor: "bg-green-100 dark:bg-green-900/30",
       borderColor: "border-green-200 dark:border-green-800",
       hoverBg: "hover:bg-green-50 dark:hover:bg-green-900/50",
+    },
     {
       icon: AlertCircle,
       title: t("quickAccess.report.title"),
