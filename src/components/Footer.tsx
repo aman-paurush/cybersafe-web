@@ -26,6 +26,8 @@ const Footer = () => {
               <li><Link to="/learn" className="text-muted-foreground hover:text-primary smooth-transition">{t("nav.learn")}</Link></li>
               <li><Link to="/report" className="text-muted-foreground hover:text-primary smooth-transition">{t("nav.report")}</Link></li>
               <li><Link to="/about" className="text-muted-foreground hover:text-primary smooth-transition">{t("nav.about")}</Link></li>
+              <li><Link to="/faq" className="text-muted-foreground hover:text-primary smooth-transition">FAQ</Link></li>
+              <li><Link to="/glossary" className="text-muted-foreground hover:text-primary smooth-transition">Glossary</Link></li>
             </ul>
           </div>
 
