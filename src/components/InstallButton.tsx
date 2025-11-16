@@ -33,3 +33,4 @@ const InstallButton = ({ deferredPrompt, showInstallPrompt }: InstallButtonProps
 };
 
 export default InstallButton;
+ 

@@ -17,8 +17,8 @@ const Videos = () => {
         title: "OTP Fraud: What You Need to Know",
         description: "Learn why you should never share OTP and how scammers use it to empty your account.",
         duration: "8:45",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        videoId: "dQw4w9WgXcQ",
+        thumbnail: "https://youtu.be/qwFAKCy42pY?si=xOguiSiPbHIcBtms/maxresdefault.jpg",
+        videoId: "qwFAKCy42pY",
         category: "High Risk"
       },
       {
@@ -26,8 +26,8 @@ const Videos = () => {
         title: "UPI Payment Scams: Complete Guide",
         description: "Understanding QR code frauds, payment reversals, and how to use UPI safely.",
         duration: "10:20",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        videoId: "dQw4w9WgXcQ",
+        thumbnail: "https://img.youtube.com/vi/qwFAKCy42pY/maxresdefault.jpg",
+        videoId: "qwFAKCy42pY",
         category: "High Risk"
       },
       {
@@ -35,8 +35,8 @@ const Videos = () => {
         title: "Voice Phishing: 'Can You Hear Me?' Scam",
         description: "How criminals record your voice and use AI to create fake authorizations.",
         duration: "7:30",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        videoId: "dQw4w9WgXcQ",
+        thumbnail: "https://img.youtube.com/vi/qwFAKCy42pY/maxresdefault.jpg",
+        videoId: "qwFAKCy42pY",
         category: "High Risk"
       },
       {
@@ -44,8 +44,8 @@ const Videos = () => {
         title: "Aadhaar & KYC Scams Exposed",
         description: "Banks never ask for KYC updates over phone. Learn the truth.",
         duration: "9:15",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        videoId: "dQw4w9WgXcQ",
+        thumbnail: "https://img.youtube.com/vi/qwFAKCy42pY/maxresdefault.jpg",
+        videoId: "qwFAKCy42pY",
         category: "High Risk"
       }
     ],
@@ -55,8 +55,8 @@ const Videos = () => {
         title: "10 Ways to Secure Your Smartphone",
         description: "Essential phone security settings everyone should know.",
         duration: "12:00",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        videoId: "dQw4w9WgXcQ",
+        thumbnail: "https://img.youtube.com/vi/qwFAKCy42pY/maxresdefault.jpg",
+        videoId: "qwFAKCy42pY",
         category: "Prevention"
       },
       {
@@ -64,8 +64,8 @@ const Videos = () => {
         title: "How to Shop Online Safely",
         description: "Identify fake shopping websites and apps before you lose money.",
         duration: "8:50",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        videoId: "dQw4w9WgXcQ",
+        thumbnail: "https://img.youtube.com/vi/qwFAKCy42pY/maxresdefault.jpg",
+        videoId: "qwFAKCy42pY",
         category: "Prevention"
       },
       {
@@ -73,8 +73,8 @@ const Videos = () => {
         title: "Creating Strong Passwords & 2FA",
         description: "Best practices for password management and two-factor authentication.",
         duration: "6:40",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        videoId: "dQw4w9WgXcQ",
+        thumbnail: "https://img.youtube.com/vi/qwFAKCy42pY/maxresdefault.jpg",
+        videoId: "qwFAKCy42pY",
         category: "Prevention"
       },
       {
@@ -82,8 +82,8 @@ const Videos = () => {
         title: "How to Spot Phishing Attempts",
         description: "Identify fake emails, SMS, and calls trying to steal your information.",
         duration: "9:25",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        videoId: "dQw4w9WgXcQ",
+        thumbnail: "https://img.youtube.com/vi/qwFAKCy42pY/maxresdefault.jpg",
+        videoId: "qwFAKCy42pY",
         category: "Prevention"
       }
     ],
@@ -93,8 +93,8 @@ const Videos = () => {
         title: "Real Story: Lost ₹2 Lakhs to OTP Scam",
         description: "A victim shares their experience and lessons learned.",
         duration: "11:30",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        videoId: "dQw4w9WgXcQ",
+        thumbnail: "https://img.youtube.com/vi/qwFAKCy42pY/maxresdefault.jpg",
+        videoId: "qwFAKCy42pY",
         category: "Case Study"
       },
       {
@@ -102,8 +102,8 @@ const Videos = () => {
         title: "How I Got My Money Back After UPI Fraud",
         description: "Step-by-step process of reporting and recovering from fraud.",
         duration: "14:20",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        videoId: "dQw4w9WgXcQ",
+        thumbnail: "https://img.youtube.com/vi/qwFAKCy42pY/maxresdefault.jpg",
+        videoId: "qwFAKCy42pY",
         category: "Case Study"
       },
       {
@@ -111,8 +111,8 @@ const Videos = () => {
         title: "Loan App Harassment: My Nightmare",
         description: "How predatory loan apps destroyed lives and what you can do.",
         duration: "16:45",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        videoId: "dQw4w9WgXcQ",
+        thumbnail: "https://img.youtube.com/vi/qwFAKCy42pY/maxresdefault.jpg",
+        videoId: "qwFAKCy42pY",
         category: "Case Study"
       }
     ]

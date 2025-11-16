@@ -51,7 +51,7 @@ const ScamDetail = () => {
         "Change your passwords and PINs",
         "Check your bank statements for unauthorized transactions"
       ],
-      videoId: "dQw4w9WgXcQ",
+      videoId: "qwFAKCy42pY",
       quiz: [
         {
           question: "A person calls claiming to be from your bank and says your KYC needs urgent update. What should you do?",
@@ -116,7 +116,7 @@ const ScamDetail = () => {
         "Alert your contacts about the scam",
         "Inform your bank about potential voice phishing"
       ],
-      videoId: "dQw4w9WgXcQ",
+      videoId: "qwFAKCy42pY",
       quiz: [
         {
           question: "An unknown caller asks 'Can you hear me?' What should you respond?",
@@ -184,7 +184,7 @@ const ScamDetail = () => {
         "Report to cybercrime.gov.in",
         "Warn others about the fake ad/website"
       ],
-      videoId: "dQw4w9WgXcQ",
+      videoId: "qwFAKCy42pY",
       quiz: [
         {
           question: "You see a Facebook ad for iPhone at ₹5,000. What should you do?",
@@ -250,7 +250,7 @@ const ScamDetail = () => {
         "Alert your family and friends",
         "Check your account for unauthorized activity"
       ],
-      videoId: "dQw4w9WgXcQ",
+      videoId: "qwFAKCy42pY",
       quiz: [
         {
           question: "Bank official calls saying your account will be blocked unless you share OTP now. What do you do?",
@@ -317,7 +317,7 @@ const ScamDetail = () => {
         "Check bank statements for fraudulent transactions",
         "Enable transaction alerts on your mobile"
       ],
-      videoId: "dQw4w9WgXcQ",
+      videoId: "qwFAKCy42pY",
       quiz: [
         {
           question: "When should you share your OTP with someone?",
@@ -385,7 +385,7 @@ const ScamDetail = () => {
         "Change UPI PIN immediately",
         "Enable transaction notifications"
       ],
-      videoId: "dQw4w9WgXcQ",
+      videoId: "qwFAKCy42pY",
       quiz: [
         {
           question: "Someone sends you a QR code on WhatsApp claiming you'll receive ₹5,000 by scanning it. Should you scan?",
@@ -454,7 +454,7 @@ const ScamDetail = () => {
         "Seek help from consumer forums",
         "Warn others about the fraudulent app"
       ],
-      videoId: "dQw4w9WgXcQ",
+      videoId: "qwFAKCy42pY",
       quiz: [
         {
           question: "A loan app asks for access to your contacts and photo gallery. Should you allow it?",
