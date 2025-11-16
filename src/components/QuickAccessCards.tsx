@@ -1,11 +1,14 @@
 import { BookOpen, Newspaper, Shield, FileText, AlertCircle, Phone, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const QuickAccessCards = () => {
   const { t } = useLanguage();
   
+  const [showContacts, setShowContacts] = useState(false);
+
   const cards = [
     {
       icon: BookOpen,
@@ -21,11 +24,22 @@ const QuickAccessCards = () => {
       icon: Newspaper,
       title: t("quickAccess.news.title"),
       description: t("quickAccess.news.desc"),
-      path: "/saved-news",
+      // routes to Learn page showing common scam types
+      path: "/learn",
       color: "text-green-600 dark:text-green-400",
       bgColor: "bg-green-100 dark:bg-green-900/30",
       borderColor: "border-green-200 dark:border-green-800",
       hoverBg: "hover:bg-green-50 dark:hover:bg-green-900/50",
+    },
+    {
+      icon: FileText,
+      title: t("quickAccess.faq.title") || "FAQ",
+      description: t("quickAccess.faq.desc") || "Frequently asked questions and quick answers",
+      path: "/faq",
+      color: "text-sky-600 dark:text-sky-400",
+      bgColor: "bg-sky-100 dark:bg-sky-900/30",
+      borderColor: "border-sky-200 dark:border-sky-800",
+      hoverBg: "hover:bg-sky-50 dark:hover:bg-sky-900/50",
     },
     {
       icon: AlertCircle,
@@ -61,11 +75,23 @@ const QuickAccessCards = () => {
       icon: Phone,
       title: t("quickAccess.contacts.title"),
       description: t("quickAccess.contacts.desc"),
-      path: "/about",
+      // special: not a route, will expand inline
+      path: "#contacts",
+      type: "contacts",
       color: "text-pink-600 dark:text-pink-400",
       bgColor: "bg-pink-100 dark:bg-pink-900/30",
       borderColor: "border-pink-200 dark:border-pink-800",
       hoverBg: "hover:bg-pink-50 dark:hover:bg-pink-900/50",
+    },
+    {
+      icon: FileText,
+      title: t("quickAccess.glossary.title") || "Glossary",
+      description: t("quickAccess.glossary.desc") || "Common terms explained in simple language",
+      path: "/glossary",
+      color: "text-emerald-600 dark:text-emerald-400",
+      bgColor: "bg-emerald-100 dark:bg-emerald-900/30",
+      borderColor: "border-emerald-200 dark:border-emerald-800",
+      hoverBg: "hover:bg-emerald-50 dark:hover:bg-emerald-900/50",
     },
   ];
 
@@ -82,6 +108,61 @@ const QuickAccessCards = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {cards.map((card, index) => {
             const Icon = card.icon;
+            // Contacts card: special inline expansion (no navigation)
+            if (card.type === "contacts") {
+              return (
+                <div key={index} className="group">
+                  <Card className={`h-full border-2 ${card.borderColor} ${card.hoverBg} transition-all duration-300 hover:shadow-xl hover:scale-105 overflow-hidden relative`}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <CardContent className="p-6 space-y-4 relative z-10">
+                      <div className={`${card.bgColor} w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                        <Icon className={`h-7 w-7 ${card.color}`} />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <h3 className="text-lg md:text-xl font-bold text-foreground">{card.title}</h3>
+                          <button onClick={() => setShowContacts(!showContacts)} className="text-muted-foreground">
+                            {showContacts ? 'Hide' : 'View'}
+                          </button>
+                        </div>
+                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{card.description}</p>
+
+                        {showContacts && (
+                          <div className="mt-3 space-y-2 bg-muted/30 p-3 rounded-md">
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <p className="text-sm text-muted-foreground">National Cyber Helpline</p>
+                                <a href="tel:1930" className="text-lg font-bold text-destructive">1930</a>
+                              </div>
+                              <a href="tel:1930" className="text-sm text-primary">Call</a>
+                            </div>
+
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <p className="text-sm text-muted-foreground">Police Emergency</p>
+                                <a href="tel:100" className="text-lg font-bold text-amber-600">100</a>
+                              </div>
+                              <a href="tel:100" className="text-sm text-primary">Call</a>
+                            </div>
+
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <p className="text-sm text-muted-foreground">Bank Helpline (Example)</p>
+                                <span className="text-lg font-bold text-foreground">Your Bank's Number</span>
+                              </div>
+                              <a href="#" className="text-sm text-muted-foreground">—</a>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                    <div className={`absolute bottom-0 left-0 right-0 h-1 ${card.color.replace('text-', 'bg-')} transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}></div>
+                  </Card>
+                </div>
+              );
+            }
+
+            // Default: regular link card
             return (
               <Link key={index} to={card.path} className="group">
                 <Card className={`h-full border-2 ${card.borderColor} ${card.hoverBg} transition-all duration-300 hover:shadow-xl hover:scale-105 overflow-hidden relative`}>

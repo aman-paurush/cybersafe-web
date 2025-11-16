@@ -13,6 +13,8 @@ import Checklist from "./pages/Checklist";
 import Videos from "./pages/Videos";
 import Report from "./pages/Report";
 import About from "./pages/About";
+import FAQ from "./pages/FAQ";
+import Glossary from "./pages/Glossary";
 import NotFound from "./pages/NotFound";
 import SavedNews from "./pages/SavedNews";
 import SpotTheScam from "./pages/SpotTheScam";
@@ -44,6 +46,8 @@ const App = ({ deferredPrompt, showInstallPrompt, setShowInstallPrompt }: AppPro
             <Route path="/videos" element={<Videos />} />
             <Route path="/report" element={<Report />} />
             <Route path="/about" element={<About />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/glossary" element={<Glossary />} />
             <Route path="/saved-news" element={<SavedNews />} />
             <Route path="/spot-the-scam" element={<SpotTheScam />} />
             <Route path="/safety-score" element={<SafetyScore />} />
