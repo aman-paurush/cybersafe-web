@@ -81,7 +81,7 @@ const Navbar = ({ deferredPrompt, showInstallPrompt }: NavbarProps = {}) => {
     { name: t("nav.videos"), path: "/videos" },
     { name: t("nav.resources"), path: "/resources" },
     { name: t("nav.report"), path: "/report" },
-    { name: "Report Scam", path: "/report-scam" },
+    { name: t("nav.reportScam"), path: "/report-scam" },
     { name: t("nav.about"), path: "/about" },
   ];
 
