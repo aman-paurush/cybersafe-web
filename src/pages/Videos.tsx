@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import EmergencyBanner from "@/components/EmergencyBanner";
 import Footer from "@/components/Footer";
@@ -9,6 +10,7 @@ import { PlayCircle, Video } from "lucide-react";
 
 const Videos = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const location = useLocation();
 
   const videoCategories = {
     scamTypes: [
@@ -17,7 +19,7 @@ const Videos = () => {
         title: "OTP Fraud: What You Need to Know",
         description: "Learn why you should never share OTP and how scammers use it to empty your account.",
         duration: "8:45",
-        thumbnail: "https://youtu.be/qwFAKCy42pY?si=xOguiSiPbHIcBtms/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/qwFAKCy42pY/maxresdefault.jpg",
         videoId: "qwFAKCy42pY",
         category: "High Risk"
       },
@@ -195,7 +197,10 @@ const Videos = () => {
         {/* Video Grid */}
         <section className="py-12 px-4 bg-background">
           <div className="container mx-auto">
-            <Tabs defaultValue="scam-types" className="space-y-8">
+            {
+              // Use location.key as key so Tabs remounts on each navigation
+            }
+            <Tabs key={location.key} defaultValue="scam-types" className="space-y-8">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="scam-types">Scam Types</TabsTrigger>
                 <TabsTrigger value="safety-tips">Safety Tips</TabsTrigger>

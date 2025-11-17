@@ -20,6 +20,8 @@ const Navbar = ({ deferredPrompt, showInstallPrompt }: NavbarProps = {}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [savedCount, setSavedCount] = useState(0);
   const { language, setLanguage, t } = useLanguage();
+  const [deferredPromptLocal, setDeferredPromptLocal] = useState<any>(null);
+  const [showInstallPromptLocal, setShowInstallPromptLocal] = useState(false);
 
   useEffect(() => {
     const updateSavedCount = () => {
@@ -31,6 +33,28 @@ const Navbar = ({ deferredPrompt, showInstallPrompt }: NavbarProps = {}) => {
     updateSavedCount();
     window.addEventListener('storage', updateSavedCount);
     return () => window.removeEventListener('storage', updateSavedCount);
+  }, []);
+
+  // Local PWA install prompt listener so InstallButton is available on all pages (including mobile)
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e: any) => {
+      e.preventDefault();
+      setDeferredPromptLocal(e);
+      setShowInstallPromptLocal(true);
+    };
+
+    const handleAppInstalled = () => {
+      setShowInstallPromptLocal(false);
+      setDeferredPromptLocal(null);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    window.addEventListener('appinstalled', handleAppInstalled);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+    };
   }, []);
 
   const languages = [
@@ -48,6 +72,7 @@ const Navbar = ({ deferredPrompt, showInstallPrompt }: NavbarProps = {}) => {
     { name: t("nav.videos"), path: "/videos" },
     { name: t("nav.resources"), path: "/resources" },
     { name: t("nav.report"), path: "/report" },
+    { name: "Report Scam", path: "/report-scam" },
     { name: t("nav.about"), path: "/about" },
   ];
 
@@ -79,8 +104,8 @@ const Navbar = ({ deferredPrompt, showInstallPrompt }: NavbarProps = {}) => {
               </Link>
             </div>
 
-            {deferredPrompt && showInstallPrompt && (
-              <InstallButton deferredPrompt={deferredPrompt} showInstallPrompt={showInstallPrompt} />
+            {((deferredPrompt && showInstallPrompt) || (deferredPromptLocal && showInstallPromptLocal)) && (
+              <InstallButton deferredPrompt={deferredPrompt || deferredPromptLocal} showInstallPrompt={showInstallPrompt || showInstallPromptLocal} />
             )}
 
             <DropdownMenu>
@@ -139,6 +164,11 @@ const Navbar = ({ deferredPrompt, showInstallPrompt }: NavbarProps = {}) => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
+              {((deferredPrompt && showInstallPrompt) || (deferredPromptLocal && showInstallPromptLocal)) && (
+                <div className="mt-4">
+                  <InstallButton deferredPrompt={deferredPrompt || deferredPromptLocal} showInstallPrompt={showInstallPrompt || showInstallPromptLocal} />
+                </div>
+              )}
             </div>
           </div>
         )}

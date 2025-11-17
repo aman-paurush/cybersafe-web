@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Bookmark, Trash2, ArrowLeft, ChevronLeft, ChevronRight, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -13,6 +14,7 @@ const SavedNews = () => {
   const [savedArticles, setSavedArticles] = useState<any[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoSwipe, setAutoSwipe] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     const saved = localStorage.getItem('savedArticles');
@@ -20,6 +22,22 @@ const SavedNews = () => {
       setSavedArticles(JSON.parse(saved));
     }
   }, []);
+
+  // Reset index when navigated to this route (or when navigation state requests a startIndex)
+  useEffect(() => {
+    // If navigation supplied a start index, honor it
+    // @ts-ignore - location.state may be undefined or any
+    const startIndex = location.state && (location.state.startIndex ?? null);
+    if (startIndex !== null && typeof startIndex === 'number' && startIndex >= 0) {
+      setCurrentIndex(startIndex);
+    } else {
+      // default: start from beginning
+      setCurrentIndex(0);
+    }
+    // when arriving fresh, resume auto-swipe
+    setAutoSwipe(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.key]);
 
   // Auto-swipe functionality
   useEffect(() => {

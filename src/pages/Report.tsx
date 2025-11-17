@@ -3,7 +3,8 @@ import EmergencyBanner from "@/components/EmergencyBanner";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Phone, Globe, MessageSquare, MapPin, FileText, Clock } from "lucide-react";
+import { Phone, Globe, MessageSquare, MapPin, FileText, Clock, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Report = () => {
   const reportingSteps = [
@@ -100,6 +101,23 @@ const Report = () => {
             <div className="flex items-center justify-center gap-2 mt-6">
               <Clock className="h-6 w-6" />
               <span className="text-lg font-semibold">Report within 24 hours for best results</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Report Form CTA */}
+        <section className="py-8 px-4 bg-primary/5 border-b border-primary/20">
+          <div className="container mx-auto max-w-5xl">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 bg-gradient-to-r from-primary/10 to-primary/5 border-2 border-primary rounded-xl">
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold text-foreground mb-2">Report Your Scam Experience</h3>
+                <p className="text-muted-foreground">Share your details directly with us - help us track fraud patterns and reach out to you with support and updates.</p>
+              </div>
+              <Link to="/report-scam">
+                <Button className="gap-2 bg-primary hover:bg-primary/90 whitespace-nowrap">
+                  Fill Report Form <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
