@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Menu, X, Shield, Globe, Bookmark } from "lucide-react";
+import { Menu, X, Shield, Globe, Bookmark, Download } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,7 @@ const Navbar = ({ deferredPrompt, showInstallPrompt }: NavbarProps = {}) => {
   const { language, setLanguage, t } = useLanguage();
   const [deferredPromptLocal, setDeferredPromptLocal] = useState<any>(null);
   const [showInstallPromptLocal, setShowInstallPromptLocal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const updateSavedCount = () => {
@@ -32,6 +33,12 @@ const Navbar = ({ deferredPrompt, showInstallPrompt }: NavbarProps = {}) => {
     };
     updateSavedCount();
     window.addEventListener('storage', updateSavedCount);
+    
+    // Detect mobile
+    const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    setIsMobile(mobile);
+    console.log('Mobile detected:', mobile);
+    
     return () => window.removeEventListener('storage', updateSavedCount);
   }, []);
 
@@ -39,11 +46,13 @@ const Navbar = ({ deferredPrompt, showInstallPrompt }: NavbarProps = {}) => {
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: any) => {
       e.preventDefault();
+      console.log('beforeinstallprompt fired - setting prompt available');
       setDeferredPromptLocal(e);
       setShowInstallPromptLocal(true);
     };
 
     const handleAppInstalled = () => {
+      console.log('App installed');
       setShowInstallPromptLocal(false);
       setDeferredPromptLocal(null);
     };
@@ -145,6 +154,29 @@ const Navbar = ({ deferredPrompt, showInstallPrompt }: NavbarProps = {}) => {
             </nav>
 
             <div className="px-4 pb-4 border-t border-border pt-4 mt-4">
+              {isMobile && !showInstallPromptLocal && (
+                <div className="mb-4 p-3 bg-primary/10 border border-primary rounded-lg text-center">
+                  <p className="text-xs text-foreground mb-2 font-semibold">Install CyberSafe App</p>
+                  <p className="text-xs text-muted-foreground mb-3">Get offline access and faster loading</p>
+                  <Button 
+                    size="sm" 
+                    className="w-full bg-primary hover:bg-primary/90 gap-2"
+                    onClick={() => {
+                      alert('On Android: Tap menu (3 dots) → "Install app" or "Add to Home Screen"\nOn iPhone: Tap Share → "Add to Home Screen"');
+                    }}
+                  >
+                    <Download className="h-4 w-4" />
+                    How to Install
+                  </Button>
+                </div>
+              )}
+              
+              {((deferredPrompt && showInstallPrompt) || (deferredPromptLocal && showInstallPromptLocal)) && (
+                <div className="mb-4">
+                  <InstallButton deferredPrompt={deferredPrompt || deferredPromptLocal} showInstallPrompt={showInstallPrompt || showInstallPromptLocal} />
+                </div>
+              )}
+              
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" className="w-full gap-2">
@@ -164,11 +196,6 @@ const Navbar = ({ deferredPrompt, showInstallPrompt }: NavbarProps = {}) => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
-              {((deferredPrompt && showInstallPrompt) || (deferredPromptLocal && showInstallPromptLocal)) && (
-                <div className="mt-4">
-                  <InstallButton deferredPrompt={deferredPrompt || deferredPromptLocal} showInstallPrompt={showInstallPrompt || showInstallPromptLocal} />
-                </div>
-              )}
             </div>
           </div>
         )}
